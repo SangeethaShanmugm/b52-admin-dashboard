@@ -1,54 +1,58 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import UserContext from './userContext'
 
 function Table() {
-    const data = [
-        {
-            name: "Tiger Nixon",
-            position: "System Architect",
-            office: "Edinburgh",
-            age: "61",
-            startDate: "2011/04/25",
-            salary: "$320,800"
-        },
-        {
-            name: "Garrett Winters",
-            position: "Accountant",
-            office: "Tokyo",
-            age: "61",
-            startDate: "2011/04/25",
-            salary: "$120,800"
-        }
-        ,
-        {
-            name: "Ashton Cox",
-            position: "Junior Technical Author",
-            office: "San Francisco",
-            age: "61",
-            startDate: "2011/04/25",
-            salary: "$320,800"
-        }
-        ,
-        {
-            name: "Cedric Kelly",
-            position: "Senior Javascript Developer",
-            office: "Edinburgh",
-            age: "61",
-            startDate: "2011/04/25",
-            salary: "$320,800"
-        },
-        {
-            name: "Airi Satou",
-            position: "Accountant",
-            office: "Edinburgh",
-            age: "61",
-            startDate: "2011/04/25",
-            salary: "$320,800"
-        }
-    ]
+    // const data = [
+    //     {
+    //         name: "Tiger Nixon",
+    //         position: "System Architect",
+    //         office: "Edinburgh",
+    //         age: "61",
+    //         startDate: "2011/04/25",
+    //         salary: "$320,800"
+    //     },
+    //     {
+    //         name: "Garrett Winters",
+    //         position: "Accountant",
+    //         office: "Tokyo",
+    //         age: "61",
+    //         startDate: "2011/04/25",
+    //         salary: "$120,800"
+    //     }
+    //     ,
+    //     {
+    //         name: "Ashton Cox",
+    //         position: "Junior Technical Author",
+    //         office: "San Francisco",
+    //         age: "61",
+    //         startDate: "2011/04/25",
+    //         salary: "$320,800"
+    //     }
+    //     ,
+    //     {
+    //         name: "Cedric Kelly",
+    //         position: "Senior Javascript Developer",
+    //         office: "Edinburgh",
+    //         age: "61",
+    //         startDate: "2011/04/25",
+    //         salary: "$320,800"
+    //     },
+    //     {
+    //         name: "Airi Satou",
+    //         position: "Accountant",
+    //         office: "Edinburgh",
+    //         age: "61",
+    //         startDate: "2011/04/25",
+    //         salary: "$320,800"
+    //     }
+    // ]
 
+    // console.log(data)
+
+    const data = useContext(UserContext)
     console.log(data)
 
-    console.log("Table", data.name)
+    // console.log("Table", data.name)
     return (
         <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -60,27 +64,36 @@ function Table() {
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>Email</th>
+                                <th>Mobile</th>
                             </tr>
                         </thead>
-                        {data.map((item) => {
+                        <tbody>
+                            {data.userData.map((user) => {
+                                return (
+                                    <tr>
+                                        <td>{user.name}</td>
+                                        <td>{user.email}</td>
+                                        <td>{user.mobile}</td>
+
+                                    </tr>
+                                )
+                            })}
+
+                        </tbody>
+
+                        {/* {data.map((item) => {
                             return (
                                 <tbody>
                                     <tr>
                                         <td>{item.name}</td>
-                                        <td>{item.position}</td>
-                                        <td>{item.office}</td>
-                                        <td>{item.age}</td>
-                                        <td>{item.startDate}</td>
-                                        <td>{item.salary}</td>
+                                        <td>{item.email}</td>
+                                        <td>{item.mobile}</td>
+
                                     </tr>
                                 </tbody>
                             )
-                        })}
+                        })} */}
                     </table>
                 </div>
             </div>

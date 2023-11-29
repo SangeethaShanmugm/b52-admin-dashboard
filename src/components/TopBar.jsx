@@ -1,6 +1,10 @@
-import React from 'react'
-
+import React, { useContext } from 'react'
+import UserContext from './userContext'
 function TopBar() {
+
+    const data = useContext(UserContext)
+    console.log(data)
+
     return (
         <>
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -174,9 +178,17 @@ function TopBar() {
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+
+                            {data.userData.map((item) => {
+                                return (
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                        {item.name}
+                                    </span>
+                                )
+                            })}
+
                             <img class="img-profile rounded-circle"
-                                src="img/undraw_profile.svg" />
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8aKhMUzKc38uUGgOhMfhWkoDeT6qu1ucHiw&usqp=CAU" />
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
